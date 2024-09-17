@@ -1,0 +1,36 @@
+name: sample workflow in YAML
+on:
+  workflow_dispatch:
+    inputs:
+      image_name:
+        type: string
+        required: true
+      version:   
+        type: string
+        required: true
+      environment:   
+        type: choice
+        required: true
+        options:
+          - dev
+          - QA
+          - UAT
+          - Prod
+env: 
+  image_name: ${{ inputs.image_name }}
+  version:  ${{ inputs.version }}
+  environment:  ${{ inputs.environment }}
+  project: spark
+jobs:
+  checkout:
+    name: github repo checkout
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v4
+      - name: results of it
+        run: |
+          echo"your repo is downloaded sucessfully"
+          echo"your IMAGE name is ${{ inputs.image_name }}"
+          echo"your Version is ${{ inputs.version }}"
+          echo"your Environment is ${{ inputs.environment }}"

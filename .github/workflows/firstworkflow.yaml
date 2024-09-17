@@ -30,7 +30,7 @@ jobs:
         uses: actions/checkout@v4
       - name: results of it
         run: |
-          echo"your repo is downloaded sucessfully"
-          echo"your IMAGE name is ${{ inputs.image_name }}"
-          echo"your Version is ${{ inputs.version }}"
-          echo"your Environment is ${{ inputs.environment }}"
+          echo "your repo is downloaded sucessfully"
+          echo "your IMAGE name is ${{ inputs.image_name }}"
+          echo "your Version is ${{ inputs.version }}"
+          echo "your Environment is ${{ inputs.environment }}"

@@ -13,14 +13,9 @@ env:
   file_name: ${{ inputs.file_name }}
 jobs:
   checkout:
-    name: github repo checkout
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout repository
-        uses: vineelayla/shared-workflows/.github/workflows/checkout.yaml@main
-        with:
-          image_name: ${{ inputs.image_name }}
-          runner: ubuntu-latest
-          file_name:  ${{ inputs.file_name }}
-        
-      
+    name: checkout repository
+    uses: vineelayla/shared-workflows/.github/workflows/checkout.yaml@main
+    with:
+      image_name: ${{ inputs.image_name }}
+      runner: ubuntu-latest
+      file_name:  ${{ inputs.file_name }}

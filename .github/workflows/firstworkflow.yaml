@@ -5,32 +5,22 @@ on:
       image_name:
         type: string
         required: true
-      version:   
+      file_name:   
         type: string
         required: true
-      environment:   
-        type: choice
-        required: true
-        options:
-          - dev
-          - QA
-          - UAT
-          - Prod
 env: 
   image_name: ${{ inputs.image_name }}
-  version:  ${{ inputs.version }}
-  environment:  ${{ inputs.environment }}
-  project: spark
+  file_name: ${{ inputs.file_name }}
 jobs:
   checkout:
     name: github repo checkout
     runs-on: ubuntu-latest
     steps:
       - name: checkout repository
-        uses: actions/checkout@v4
-      - name: results of it
-        run: |
-          echo "your repo is downloaded sucessfully"
-          echo "your IMAGE name is ${{ inputs.image_name }}"
-          echo "your Version is ${{ inputs.version }}"
-          echo "your Environment is ${{ inputs.environment }}"
+        uses: github.com/vineelayla/shared-workflows/.github/workflows/checkout.yaml@main
+        with:
+          image_name: ${{ inputs.image_name }}
+          runner: ubuntu-latest
+          file_name:  ${{ inputs.file_name }}
+        
+      

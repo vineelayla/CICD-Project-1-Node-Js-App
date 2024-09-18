@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout repository
-        uses: github.com/vineelayla/shared-workflows/.github/workflows/checkout.yaml@main
+        uses: vineelayla/shared-workflows/.github/workflows/checkout.yaml@main
         with:
           image_name: ${{ inputs.image_name }}
           runner: ubuntu-latest
